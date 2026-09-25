@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Dong Medicine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="quiz-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">03 • QUIZ</p>
+      <h1>Test your knowledge</h1>
+      <p>Take a short quiz about Dong medicine and the plants of Zhaoxing.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Dong Medicine • Home</a>
+      <div class="nav-links" id="navLinks">
+        <a href="introduction.html">Introduction</a>
+        <a href="learn.html">Learn</a>
+        <a class="active" href="quiz.html">Quiz</a>
+        <a href="questionnaire.html">Questionnaire</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="quiz-box">
+      <div class="quiz-progress" id="quizProgress"></div>
+      <h2 id="questionText"></h2>
+      <div id="answerButtons" class="answers"></div>
+      <button class="button" id="nextButton" disabled>Next →</button>
+      <div id="quizResult" class="quiz-result hidden"></div>
+    </div>
+  </main>
+
+  <footer>
+    <strong>Dong Medicine</strong>
+    <span>Discovering traditional knowledge in Zhaoxing</span>
+    <small class="footer-note">Created by students for an educational project. This website is for educational use only.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

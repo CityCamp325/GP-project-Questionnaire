@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionnaire | Dong Medicine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="questionnaire-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">04 • GIVE FEEDBACK</p>
+      <h1>Questionnaire</h1>
+      <p>Your responses help us measure whether our project increased awareness of Dong medicine.</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Dong Medicine • Home</a>
+      <div class="nav-links" id="navLinks">
+        <a href="introduction.html">Introduction</a>
+        <a href="learn.html">Learn</a>
+        <a href="quiz.html">Quiz</a>
+        <a class="active" href="questionnaire.html">Questionnaire</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="section">
+    <form class="questionnaire" id="questionnaireForm">
+      <div class="form-question">
+        <label>1. Before visiting our website or stall, had you heard of Dong medicine?</label>
+        <div class="radio-row">
+          <label><input type="radio" name="heard_before" value="Yes" required> Yes</label>
+          <label><input type="radio" name="heard_before" value="No"> No</label>
+          <label><input type="radio" name="heard_before" value="Not sure"> Not sure</label>
+        </div>
+      </div>
+
+      <div class="form-question">
+        <label>2. How much did you know about Dong medicine before?</label>
+        <div class="scale">
+          <label><input type="radio" name="before_level" value="1" required><span>1</span><small>Nothing</small></label>
+          <label><input type="radio" name="before_level" value="2" required><span>2</span><small>A little</small></label>
+          <label><input type="radio" name="before_level" value="3" required><span>3</span><small>Some</small></label>
+          <label><input type="radio" name="before_level" value="4" required><span>4</span><small>Quite a lot</small></label>
+          <label><input type="radio" name="before_level" value="5" required><span>5</span><small>A lot</small></label>
+        </div>
+      </div>
+
+      <div class="form-question">
+        <label>3. How much do you know about Dong medicine now?</label>
+        <div class="scale">
+          <label><input type="radio" name="after_level" value="1" required><span>1</span><small>Nothing</small></label>
+          <label><input type="radio" name="after_level" value="2" required><span>2</span><small>A little</small></label>
+          <label><input type="radio" name="after_level" value="3" required><span>3</span><small>Some</small></label>
+          <label><input type="radio" name="after_level" value="4" required><span>4</span><small>Quite a lot</small></label>
+          <label><input type="radio" name="after_level" value="5" required><span>5</span><small>A lot</small></label>
+        </div>
+      </div>
+
+      <div class="form-question">
+        <label>4. What did you learn from our project?</label>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="learned" value="Dong medicine"> Dong medicine</label>
+          <label><input type="checkbox" name="learned" value="Medicinal plants"> Medicinal plants</label>
+          <label><input type="checkbox" name="learned" value="Preparation methods"> Traditional preparation methods</label>
+          <label><input type="checkbox" name="learned" value="Zhaoxing culture"> Zhaoxing / Dong culture</label>
+          <label><input type="checkbox" name="learned" value="Environment"> Medicine and the environment</label>
+          <label><input type="checkbox" name="learned" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="form-question">
+        <label>5. Has this project made you more interested in learning about Dong medicine or Dong culture?</label>
+        <select name="interest" required>
+          <option value="">Choose one...</option>
+          <option>Much less interested</option>
+          <option>Less interested</option>
+          <option>No change</option>
+          <option>More interested</option>
+          <option>Much more interested</option>
+        </select>
+      </div>
+
+      <div class="form-question">
+        <label for="learnedText">6. What is one thing you learned today? (Optional)</label>
+        <textarea id="learnedText" name="learned_text" rows="4" placeholder="Write your answer here..."></textarea>
+      </div>
+
+      <div class="form-question">
+        <label for="suggestions">7. Do you have any suggestions for our store or website? (Optional)</label>
+        <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your suggestions here..."></textarea>
+      </div>
+
+      <button class="button" type="submit">Submit Feedback</button>
+      <p id="formMessage" class="form-message"></p>
+    </form>
+  </main>
+
+  <footer>
+    <strong>Dong Medicine</strong>
+    <span>Discovering traditional knowledge in Zhaoxing</span>
+    <small class="footer-note">Created by students for an educational project. This website is for educational use only.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
