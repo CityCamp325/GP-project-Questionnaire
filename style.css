@@ -588,6 +588,10 @@ main {
   display: none;
 }
 
+.button.hidden {
+  display: none;
+}
+
 /* Questionnaire */
 .questionnaire {
   max-width: 830px;
