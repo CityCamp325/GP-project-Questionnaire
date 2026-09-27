@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz | Dong Medicine</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFRQ6CLED3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XFRQ6CLED3', {
+        send_page_view: true,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="quiz-page">
@@ -29,6 +43,34 @@
 
   <main class="section">
     <div class="quiz-box">
+      <div id="quizData" hidden>
+        <article class="quiz-question" 
+            data-question="What is Dong medicine closely connected with?" 
+            data-answers='["Local plants and traditional knowledge","Only modern pharmaceuticals","Imported medical technology","Computer science"]' 
+            data-correct="0">
+        </article>
+        <article class="quiz-question" 
+            data-question="Which of these can be part of traditional plant preparation?" 
+            data-answers='["Boiling","Drying","Grinding","All of the above"]' 
+            data-correct="3">
+        </article>
+        <article class="quiz-question" 
+            data-question="Why is learning about Dong medicine important?" 
+            data-answers='["It helps us understand local cultural knowledge","It replaces modern medicine","It proves every traditional use works","It has no connection to culture"]' 
+            data-correct="0"
+            ></article>
+        <article class="quiz-question" 
+            data-question="What can traditional knowledge include?" 
+            data-answers='["Which part of a plant is used","How a plant is traditionally prepared","Knowledge passed between generations","All of the above"]' 
+            data-correct="3">
+        </article>
+        <article class="quiz-question" 
+            data-question="What is the main purpose of this website?" 
+            data-answers='["To provide medical treatment","To sell medicine","To spread awareness and share cultural knowledge","To replace doctors"]' 
+            data-correct="2">
+        </article>
+      </div>
+
       <div class="quiz-progress" id="quizProgress"></div>
       <h2 id="questionText"></h2>
       <div id="answerButtons" class="answers"></div>

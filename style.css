@@ -133,9 +133,9 @@ h3 {
 }
 
 .index-page .site-header {
-  background-color: var(--accent);
-  background-image: url("./images/index-header.jpg");
-  background-blend-mode: multiply;
+  background-image: 
+    linear-gradient(90deg,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),
+    url("./images/index-header.jpg");
 }
 
 .introduction-page .page-header {
@@ -655,6 +655,10 @@ textarea {
   margin-top: 15px;
   color: var(--forest);
   font-weight: 700;
+}
+
+.form-message.error {
+  color: #b42318;
 }
 
 /* Buttons and footer */

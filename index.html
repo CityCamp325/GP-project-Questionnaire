@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dong Medicine | Zhaoxing</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFRQ6CLED3"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XFRQ6CLED3');
-  </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFRQ6CLED3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-XFRQ6CLED3', {
+        send_page_view: true,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">

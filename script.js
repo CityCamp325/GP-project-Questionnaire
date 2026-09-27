@@ -1,4 +1,6 @@
-// Shared navigation
+// ========================================
+// SHARED NAVIGATION
+// ========================================
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -8,139 +10,36 @@ if (menuToggle) {
   });
 }
 
-// Plant flashcards
-const plants = [
-  {
-    name: "鬼针草",
-    use: "Traditionally used in local herbal knowledge.",
-    detail: "Add your team's exact traditional use and preparation information here."
-  },
-  {
-    name: "燕尾草",
-    use: "Traditionally associated with local herbal practices.",
-    detail: "Add the information collected during your Zhaoxing fieldwork here."
-  },
-  {
-    name: "地念",
-    use: "A plant included in the traditional medicinal knowledge explored by our project.",
-    detail: "Add the exact traditional use from your poster here."
-  },
-  {
-    name: "刺天茄",
-    use: "Included in our collection of plants connected with local traditional knowledge.",
-    detail: "Add your fieldwork information here."
-  },
-  {
-    name: "头花蓼",
-    use: "Traditionally prepared and used according to local knowledge.",
-    detail: "Add the traditional use and preparation method from your research."
-  },
-  {
-    name: "南沙参",
-    use: "A plant recorded as part of the traditional medicinal knowledge explored in this project.",
-    detail: "Add your fieldwork information here."
-  },
-  {
-    name: "车前草",
-    use: "A locally known plant with traditional uses documented by the project.",
-    detail: "Add the information from your poster here."
-  },
-  {
-    name: "羊耳菊",
-    use: "Included in our exploration of traditional medicinal plants.",
-    detail: "Add your team's documented traditional use here."
-  },
-  {
-    name: "千里光",
-    use: "A plant documented through our research into local traditional knowledge.",
-    detail: "Add your fieldwork information here."
-  }
-];
-
+// ========================================
+// FLASHCARDS
+// ========================================
 const flashcardGrid = document.getElementById("flashcardGrid");
 
 if (flashcardGrid) {
-  plants.forEach((plant, index) => {
-    const card = document.createElement("div");
-    card.className = "flashcard";
-    card.innerHTML = `
-      <div class="flashcard-inner">
-        <div class="flash-front">
-          <div class="plant-name" lang="zh">${plant.name}</div>
-          <div class="tap">Tap to flip</div>
-        </div>
-        <div class="flash-back">
-          <h3 lang="zh">${plant.name}</h3>
-          <p><strong>Traditional use:</strong> ${plant.use}</p>
-          <p>${plant.detail}</p>
-          <div class="tap" style="color:#dceee6">Tap to flip back</div>
-        </div>
-      </div>
-    `;
+  const cards = flashcardGrid.querySelectorAll(".flashcard");
 
+  cards.forEach((card) => {
     card.addEventListener("click", () => {
       card.classList.toggle("flipped");
 
       if (typeof gtag === "function") {
-        gtag("event", "flashcard_flip", {
-          card_number: index + 1,
-          plant: plant.name
-        });
+        gtag("event", "flashcard_flip");
       }
     });
-
-    flashcardGrid.appendChild(card);
   });
 }
 
-// Quiz questions and state
-const quizQuestions = [
-  {
-    q: "What is Dong medicine closely connected with?",
-    a: [
-      "Local plants and traditional knowledge",
-      "Only modern pharmaceuticals",
-      "Imported medical technology",
-      "Computer science"
-    ],
-    c: 0
-  },
-  {
-    q: "Which of these can be part of traditional plant preparation?",
-    a: ["Boiling", "Drying", "Grinding", "All of the above"],
-    c: 3
-  },
-  {
-    q: "Why is learning about Dong medicine important?",
-    a: [
-      "It helps us understand local cultural knowledge",
-      "It replaces modern medicine",
-      "It proves every traditional use works",
-      "It has no connection to culture"
-    ],
-    c: 0
-  },
-  {
-    q: "What can traditional knowledge include?",
-    a: [
-      "Which part of a plant is used",
-      "How a plant is traditionally prepared",
-      "Knowledge passed between generations",
-      "All of the above"
-    ],
-    c: 3
-  },
-  {
-    q: "What is the main purpose of this website?",
-    a: [
-      "To provide medical treatment",
-      "To sell medicine",
-      "To spread awareness and share cultural knowledge",
-      "To replace doctors"
-    ],
-    c: 2
-  }
-];
+// ========================================
+// QUIZ QUESTIONS AND STATE
+// ========================================
+const quizDataElement = document.getElementById("quizData");
+const quizQuestions = quizDataElement
+  ? Array.from(quizDataElement.querySelectorAll(".quiz-question")).map((item) => ({
+      q: item.dataset.question,
+      a: JSON.parse(item.dataset.answers),
+      c: Number(item.dataset.correct)
+    }))
+  : [];
 
 let questionIndex = 0;
 let score = 0;
@@ -198,6 +97,9 @@ function loadQuestion() {
   });
 }
 
+// ========================================
+// QUIZ NEXT BUTTON
+// ========================================
 if (nextButton) {
   nextButton.onclick = () => {
     questionIndex++;
@@ -212,6 +114,7 @@ if (nextButton) {
     answerButtons.innerHTML = "";
     nextButton.classList.add("hidden");
     quizResult.classList.remove("hidden");
+
     quizResult.innerHTML = `
       <h3>You scored ${score}/${quizQuestions.length}</h3>
       <p>Thanks for learning about Dong medicine.</p>
@@ -220,13 +123,16 @@ if (nextButton) {
 
     if (typeof gtag === "function") {
       gtag("event", "quiz_complete", {
-        score,
+        score: score,
         total: quizQuestions.length
       });
     }
   };
 }
 
+// ========================================
+// RESTART QUIZ
+// ========================================
 function restartQuiz() {
   questionIndex = 0;
   score = 0;
@@ -237,29 +143,134 @@ function restartQuiz() {
 
 loadQuestion();
 
-// Questionnaire submission
+// ========================================
+// QUESTIONNAIRE SUBMISSION
+// ========================================
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxeU9_7DXT5yXlvfQemukwl-mHR7wADnuo_IgrIhOZ99_SAj29HaH40eQODB3DpG08cvA/exec";
+
 const questionnaireForm = document.getElementById("questionnaireForm");
 
 if (questionnaireForm) {
-  questionnaireForm.addEventListener("submit", (event) => {
+  questionnaireForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const data = new FormData(questionnaireForm);
-    const before = Number(data.get("before_level"));
-    const after = Number(data.get("after_level"));
+    const formMessage = document.getElementById("formMessage");
 
-    if (typeof gtag === "function") {
-      gtag("event", "questionnaire_submit", {
-        heard_before: data.get("heard_before"),
-        before_level: before,
-        after_level: after,
-        awareness_change: after - before,
-        interest: data.get("interest")
+    // ========================================
+    // CHECK REQUIRED QUESTIONS
+    // ========================================
+    const data = new FormData(questionnaireForm);
+    const heardBefore = data.get("heard_before");
+    const beforeLevel = data.get("before_level");
+    const afterLevel = data.get("after_level");
+    const interest = data.get("interest");
+
+    if (!heardBefore || !beforeLevel || !afterLevel || !interest) {
+      formMessage.textContent =
+        "Please answer all required questions before submitting.";
+      formMessage.classList.add("error");
+
+      formMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
       });
+
+      return;
     }
 
-    document.getElementById("formMessage").textContent =
-      "Thank you! Your feedback has been recorded for our project.";
-    questionnaireForm.reset();
+    // ========================================
+    // GET Q4 CHECKBOX ANSWERS
+    // ========================================
+    const learnedAnswers = data.getAll("learned");
+    const learned = learnedAnswers.join("; ");
+
+    // ========================================
+    // GET OPTIONAL QUESTIONS
+    // ========================================
+    const learnedToday = data.get("learned_text") || "";
+    const suggestions = data.get("suggestions") || "";
+
+    // ========================================
+    // SHOW SUBMITTING MESSAGE
+    // ========================================
+    formMessage.textContent = "Submitting your feedback...";
+    formMessage.classList.remove("error");
+
+    const submitButton = questionnaireForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+    }
+
+    // ========================================
+    // SEND DATA TO GOOGLE SHEETS
+    // ========================================
+    const submissionData = new URLSearchParams();
+
+    submissionData.append("heardBefore", heardBefore);
+    submissionData.append("beforeLevel", beforeLevel);
+    submissionData.append("afterLevel", afterLevel);
+    submissionData.append("learned", learned);
+    submissionData.append("interest", interest);
+    submissionData.append("learnedToday", learnedToday);
+    submissionData.append("suggestions", suggestions);
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      body: submissionData
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Questionnaire submission failed");
+        }
+        return response;
+      })
+      .then(function () {
+        // ========================================
+        // GOOGLE ANALYTICS
+        // ========================================
+        // Only record that the questionnaire
+        // was successfully submitted.
+        // No questionnaire answers are sent to GA.
+
+        if (typeof gtag === "function") {
+          gtag("event", "questionnaire_submit");
+        }
+
+        // ========================================
+        // SUCCESS MESSAGE
+        // ========================================
+        formMessage.textContent =
+          "Thank you! Your feedback has been recorded.";
+        formMessage.classList.remove("error");
+
+        formMessage.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+        questionnaireForm.reset();
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit Feedback";
+        }
+      })
+      .catch(function (error) {
+        console.error("Questionnaire submission error:", error);
+
+        formMessage.textContent =
+          "Sorry, something went wrong. Please try again.";
+        formMessage.classList.add("error");
+
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit Feedback";
+        }
+      });
   });
 }
