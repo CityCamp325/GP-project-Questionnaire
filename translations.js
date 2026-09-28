@@ -5,14 +5,14 @@ window.translations = {
             introduction: "简介｜侗族医药",
             learn: "学习｜侗族医药",
             quiz: "知识问答｜侗族医药",
-            questionnaire: "问卷｜侗族医药"
+            questionnaire: "问卷调查｜侗族医药"
         },
         navigation: {
             home: "侗族医药 • 首页",
             introduction: "简介",
             learn: "学习",
             quiz: "知识问答",
-            questionnaire: "问卷"
+            questionnaire: "问卷调查"
         },
         footer: {
             title: "侗族医药",
@@ -21,17 +21,17 @@ window.translations = {
         },
         home: {
             eyebrow: "肇兴 • 侗族文化 • 传统知识",
-            title: "探索侗族医药",
+            title: "肇兴侗族的传统医药",
             description: "了解传统医药知识、当地植物，以及侗族文化与肇兴自然环境之间的联系。",
-            exploreEyebrow: "探索网站",
+            exploreEyebrow: "网站布局",
             exploreTitle: "按照自己的节奏学习",
             introductionTitle: "简介",
             introductionDescription: "了解肇兴以及侗族医药的背景。",
             learnTitle: "学习",
-            learnDescription: "通过互动卡片了解传统药用植物。",
+            learnDescription: "通过访谈视频和互动卡片了解传统药用植物。",
             quizTitle: "知识问答",
             quizDescription: "通过简短的选择题检验你学到的内容。",
-            questionnaireTitle: "问卷",
+            questionnaireTitle: "问卷调查",
             questionnaireDescription: "分享你的反馈，帮助我们了解公众的认知情况。",
             projectEyebrow: "我们的项目",
             projectTitle: "从实地考察到知识传播",
@@ -61,8 +61,8 @@ window.translations = {
         },
         learn: {
             eyebrow: "02 • 学习",
-            title: "翻看植物卡片",
-            description: "点击卡片，了解我们研究的传统药用植物。",
+            title: "观看访谈视频、翻看植物卡片",
+            description: "观看视频、点击卡片，了解当地的侗医文化和传统药用植物。",
             videoTitle: "访谈",
             videoDescription: "这段视频由来自上海的11年级学生在访问肇兴村期间制作。视频中包含对一位当地专家的采访，内容围绕侗族传统医药展开，探讨其背后的知识、实践和文化传承。",
             howItWorksTitle: "使用方法：",
@@ -122,13 +122,13 @@ window.translations = {
         },
         quiz: {
             eyebrow: "03 • 知识问答",
-            title: "检验你的知识",
+            title: "检验你的成果",
             description: "完成有关侗族医药和肇兴植物的简短问答。",
             progress: "第 {current} 题，共 {total} 题",
             completeTitle: "问答完成！",
             wellDone: "做得好",
             score: "你的得分：{score}/{total}",
-            thanks: "感谢你了解侗族医药。",
+            thanks: "感谢你了解侗族医药，支持我们的项目",
             tryAgain: "再试一次",
             next: "下一题 →",
             questions: [
@@ -156,7 +156,7 @@ window.translations = {
         },
         questionnaire: {
             eyebrow: "04 • 提交反馈",
-            title: "问卷",
+            title: "问卷调查",
             description: "你的回答将帮助我们了解这个项目是否提升了大家对侗族医药的认识。",
             questions: [
                 "1. 在访问我们的网站或展位之前，你听说过侗族医药吗？",
