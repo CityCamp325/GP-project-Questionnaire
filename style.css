@@ -433,6 +433,13 @@ main {
     font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
+.video-description {
+    max-width: 760px;
+    margin-top: 8px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
 .video-wrapper {
     position: relative;
     width: 100%;
