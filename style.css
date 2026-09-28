@@ -275,7 +275,7 @@ main {
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 20px;
 }
 
 .feature-card,
@@ -317,12 +317,12 @@ main {
 
 .callout {
     width: min(1140px, calc(100% - 48px));
-    margin: 0 auto 88px;
+    margin: 32px auto 0;
     padding: 38px 42px;
     display: grid;
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
     align-items: center;
-    gap: 46px;
+    gap: 40px;
     border-radius: var(--radius);
     background: var(--forest);
     color: var(--paper);
@@ -343,12 +343,16 @@ main {
 /* Introduction */
 .two-column {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
 }
 
 .info-card {
     padding: 32px;
+}
+
+.info-card p + p {
+    margin-top: 16px;
 }
 
 .info-card h2 {
@@ -834,7 +838,6 @@ footer span {
 
     .callout {
         grid-template-columns: 1fr;
-        margin-bottom: 62px;
         padding: 28px;
     }
 
