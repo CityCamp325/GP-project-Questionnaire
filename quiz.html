@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-label-en="Quiz | Dong Medicine" data-label-zh="知识问答｜侗族医药">Quiz | Dong Medicine</title>
+    <title data-i18n="pageTitles.quiz">Quiz | Dong Medicine</title>
 
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFRQ6CLED3"></script>
@@ -23,9 +23,9 @@
 <body class="quiz-page">
     <header class="page-header">
         <div>
-            <p class="eyebrow" data-label-en="03 • QUIZ" data-label-zh="03 • 知识问答">03 • QUIZ</p>
-            <h1 data-label-en="Test your knowledge" data-label-zh="检验你的知识">Test your knowledge</h1>
-            <p data-label-en="Take a short quiz about Dong medicine and the plants of Zhaoxing." data-label-zh="完成有关侗族医药和肇兴植物的简短问答。">Take a short quiz about Dong medicine and the plants of Zhaoxing.</p>
+            <p class="eyebrow" data-i18n="quiz.eyebrow">03 • QUIZ</p>
+            <h1 data-i18n="quiz.title">Test your knowledge</h1>
+            <p data-i18n="quiz.description">Take a short quiz about Dong medicine and the plants of Zhaoxing.</p>
         </div>
     </header>
 
@@ -44,51 +44,51 @@
     <main class="section">
         <div class="quiz-box"
             data-progress-en="Question {current} of {total}"
-            data-progress-zh="第 {current} 题，共 {total} 题"
+            data-progress-i18n="quiz.progress"
             data-complete-title-en="Quiz complete!"
-            data-complete-title-zh="问答完成！"
+            data-complete-title-i18n="quiz.completeTitle"
             data-well-done-en="Well done"
-            data-well-done-zh="做得好"
+            data-well-done-i18n="quiz.wellDone"
             data-score-en="You scored {score}/{total}"
-            data-score-zh="你的得分：{score}/{total}"
+            data-score-i18n="quiz.score"
             data-thanks-en="Thanks for learning about Dong medicine."
-            data-thanks-zh="感谢你了解侗族医药。"
+            data-thanks-i18n="quiz.thanks"
             data-try-again-en="Try Again"
-            data-try-again-zh="再试一次">
+            data-try-again-i18n="quiz.tryAgain">
             <div id="quizData" hidden>
                 <article class="quiz-question"
                     data-question-en="What is Dong medicine closely connected with?"
-                    data-question-zh="侗族医药与什么密切相关？"
+                    data-question-i18n="quiz.questions.0.question"
                     data-answers-en='["Local plants and traditional knowledge","Only modern pharmaceuticals","Imported medical technology","Computer science"]'
-                    data-answers-zh='["当地植物和传统知识","只有现代药品","进口医疗技术","计算机科学"]'
+                    data-answers-i18n="quiz.questions.0.answers"
                         data-correct="0">
                 </article>
                 <article class="quiz-question"
                     data-question-en="Which of these can be part of traditional plant preparation?"
-                    data-question-zh="以下哪些可以是植物的传统制备方式？"
+                    data-question-i18n="quiz.questions.1.question"
                     data-answers-en='["Boiling","Drying","Grinding","All of the above"]'
-                    data-answers-zh='["水煮","晾晒","研磨","以上皆是"]'
+                    data-answers-i18n="quiz.questions.1.answers"
                         data-correct="3">
                 </article>
                 <article class="quiz-question"
                     data-question-en="Why is learning about Dong medicine important?"
-                    data-question-zh="为什么了解侗族医药很重要？"
+                    data-question-i18n="quiz.questions.2.question"
                     data-answers-en='["It helps us understand local cultural knowledge","It replaces modern medicine","It proves every traditional use works","It has no connection to culture"]'
-                    data-answers-zh='["有助于我们理解当地文化知识","它可以取代现代医学","它证明所有传统用途都有效","它与文化无关"]'
+                    data-answers-i18n="quiz.questions.2.answers"
                     data-correct="0">
                 </article>
                 <article class="quiz-question"
                     data-question-en="What can traditional knowledge include?"
-                    data-question-zh="传统知识可能包括什么？"
+                    data-question-i18n="quiz.questions.3.question"
                     data-answers-en='["Which part of a plant is used","How a plant is traditionally prepared","Knowledge passed between generations","All of the above"]'
-                    data-answers-zh='["使用植物的哪一部分","植物的传统制备方法","代代相传的知识","以上皆是"]'
+                    data-answers-i18n="quiz.questions.3.answers"
                         data-correct="3">
                 </article>
                 <article class="quiz-question"
                     data-question-en="What is the main purpose of this website?"
-                    data-question-zh="本网站的主要目的是什么？"
+                    data-question-i18n="quiz.questions.4.question"
                     data-answers-en='["To provide medical treatment","To sell medicine","To spread awareness and share cultural knowledge","To replace doctors"]'
-                    data-answers-zh='["提供医疗治疗","销售药品","传播认识并分享文化知识","取代医生"]'
+                    data-answers-i18n="quiz.questions.4.answers"
                         data-correct="2">
                 </article>
             </div>
@@ -96,7 +96,7 @@
             <div class="quiz-progress" id="quizProgress"></div>
             <h2 id="questionText"></h2>
             <div id="answerButtons" class="answers"></div>
-            <button class="button" id="nextButton" data-label-en="Next →" data-label-zh="下一题 →" disabled>Next →</button>
+            <button class="button" id="nextButton" data-i18n="quiz.next" disabled>Next →</button>
             <div id="quizResult" class="quiz-result hidden"></div>
         </div>
     </main>

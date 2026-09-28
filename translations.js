@@ -3,7 +3,9 @@ window.translations = {
         pageTitles: {
             home: "侗族医药｜肇兴",
             introduction: "简介｜侗族医药",
-            learn: "学习｜侗族医药"
+            learn: "学习｜侗族医药",
+            quiz: "知识问答｜侗族医药",
+            questionnaire: "问卷｜侗族医药"
         },
         navigation: {
             home: "侗族医药 • 首页",
@@ -117,6 +119,69 @@ window.translations = {
             },
             disclaimerTitle: "教育说明：",
             disclaimer: "这些卡片介绍本项目收集的传统用途和文化知识，不构成医疗建议，也不表示相关疗效已得到证实。"
+        },
+        quiz: {
+            eyebrow: "03 • 知识问答",
+            title: "检验你的知识",
+            description: "完成有关侗族医药和肇兴植物的简短问答。",
+            progress: "第 {current} 题，共 {total} 题",
+            completeTitle: "问答完成！",
+            wellDone: "做得好",
+            score: "你的得分：{score}/{total}",
+            thanks: "感谢你了解侗族医药。",
+            tryAgain: "再试一次",
+            next: "下一题 →",
+            questions: [
+                {
+                    question: "侗族医药与什么密切相关？",
+                    answers: ["当地植物和传统知识", "只有现代药品", "进口医疗技术", "计算机科学"]
+                },
+                {
+                    question: "以下哪些可以是植物的传统制备方式？",
+                    answers: ["水煮", "晾晒", "研磨", "以上皆是"]
+                },
+                {
+                    question: "为什么了解侗族医药很重要？",
+                    answers: ["有助于我们理解当地文化知识", "它可以取代现代医学", "它证明所有传统用途都有效", "它与文化无关"]
+                },
+                {
+                    question: "传统知识可能包括什么？",
+                    answers: ["使用植物的哪一部分", "植物的传统制备方法", "代代相传的知识", "以上皆是"]
+                },
+                {
+                    question: "本网站的主要目的是什么？",
+                    answers: ["提供医疗治疗", "销售药品", "传播认识并分享文化知识", "取代医生"]
+                }
+            ]
+        },
+        questionnaire: {
+            eyebrow: "04 • 提交反馈",
+            title: "问卷",
+            description: "你的回答将帮助我们了解这个项目是否提升了大家对侗族医药的认识。",
+            questions: [
+                "1. 在访问我们的网站或展位之前，你听说过侗族医药吗？",
+                "2. 之前你对侗族医药了解多少？",
+                "3. 现在你对侗族医药了解多少？",
+                "4. 你从我们的项目中学到了什么？",
+                "5. 这个项目是否让你更想了解侗族医药或侗族文化？",
+                "6. 今天你学到的一件事是什么？（选答）",
+                "7. 你对我们的展位或网站有什么建议吗？（选答）"
+            ],
+            yes: "是",
+            no: "否",
+            notSure: "不确定",
+            scale: ["完全不了解", "了解一点", "了解一些", "比较了解", "非常了解"],
+            learnedOptions: ["侗族医药", "药用植物", "传统制备方法", "肇兴／侗族文化", "医药与环境", "其他"],
+            chooseOne: "请选择……",
+            interestOptions: ["兴趣降低很多", "兴趣有所降低", "没有变化", "更感兴趣", "更加感兴趣"],
+            learnedPlaceholder: "请在此填写你的回答……",
+            suggestionsPlaceholder: "请分享你的建议……",
+            submit: "提交反馈",
+            pending: "正在提交……",
+            requiredError: "请回答所有必答题后再提交。",
+            submittingMessage: "正在提交你的反馈……",
+            success: "谢谢！你的反馈已记录。",
+            failure: "抱歉，提交时出了问题，请重试。"
         }
     }
 };
@@ -124,6 +189,7 @@ window.translations = {
 (function initializeTranslations() {
     const languageStorageKey = "dongMedicineLanguage";
     const originalText = new WeakMap();
+    const originalAttributes = new WeakMap();
 
     function getTranslation(path) {
         return path.split(".").reduce((value, key) => value && value[key], window.translations.zh);
@@ -142,18 +208,35 @@ window.translations = {
         });
 
         document.querySelectorAll("[placeholder], [title], [aria-label]").forEach((element) => {
+            if (!originalAttributes.has(element)) {
+                originalAttributes.set(element, {});
+            }
             ["placeholder", "title", "aria-label"].forEach((attribute) => {
                 if (element.hasAttribute(attribute)) {
+                    const attributes = originalAttributes.get(element);
+                    if (!(attribute in attributes)) {
+                        attributes[attribute] = element.getAttribute(attribute);
+                    }
                     const localizedValue = element.getAttribute(`data-${attribute}-${language}`);
-                    if (localizedValue !== null) {
+                    const translationKey = element.getAttribute(`data-${attribute}-i18n`);
+                    const translatedValue = translationKey && getTranslation(translationKey);
+                    if (language === "zh" && typeof translatedValue === "string") {
+                        element.setAttribute(attribute, translatedValue);
+                    } else if (localizedValue !== null) {
                         element.setAttribute(attribute, localizedValue);
+                    } else {
+                        element.setAttribute(attribute, attributes[attribute]);
                     }
                 }
             });
         });
 
-        document.querySelectorAll("[data-label-en], [data-label-zh]").forEach((element) => {
-            const label = element.getAttribute(`data-label-${language}`);
+        document.querySelectorAll("[data-label-en], [data-label-zh], [data-label-i18n]").forEach((element) => {
+            const translationKey = element.getAttribute("data-label-i18n");
+            const translation = translationKey && getTranslation(translationKey);
+            const label = language === "zh"
+                ? (typeof translation === "string" ? translation : element.getAttribute("data-label-zh"))
+                : element.getAttribute("data-label-en");
             if (label !== null) {
                 element.textContent = label;
             }
@@ -178,6 +261,7 @@ window.translations = {
         document.dispatchEvent(new Event("site-language-changed"));
     }
 
+    window.getSiteTranslation = getTranslation;
     window.applySiteLanguage = applyLanguage;
 
     let savedLanguage = "en";

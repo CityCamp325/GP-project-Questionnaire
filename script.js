@@ -12,7 +12,13 @@ if (menuToggle) {
 
 function getLocalizedHtmlText(element, key) {
     const language = document.documentElement.lang === "zh-CN" ? "zh" : "en";
-    return element?.getAttribute(`data-${key}-${language}`) || "";
+    if (language === "en") {
+        return element?.getAttribute(`data-${key}-en`) || "";
+    }
+
+    const translationKey = element?.getAttribute(`data-${key}-i18n`);
+    const translation = translationKey && window.getSiteTranslation?.(translationKey);
+    return Array.isArray(translation) ? JSON.stringify(translation) : translation || "";
 }
 
 // ========================================
