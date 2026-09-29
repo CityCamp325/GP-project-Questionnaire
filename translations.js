@@ -69,52 +69,70 @@ window.translations = {
             howItWorks: "点击卡片即可翻转。正面展示植物，背面包含相关信息。",
             tapToFlip: "点击翻面",
             tapToFlipBack: "点击翻回正面",
-            traditionalUseTitle: "传统用途：",
+            useLabel: "用法：",
+            methodLabel: "方法：",
+            treatmentLabel: "功效/治疗：",
+            plantNoteLabel: "植物特点：",
             plants: {
                 guizhenCao: {
-                    name: "鬼针草",
-                    traditionalUse: "在当地草药知识中有传统用途。",
-                    detail: "请在此填写团队确认的传统用途和制备信息。"
+                    treatment: "去火，缓解关节痛，治发烧、咽喉肿痛。"
                 },
-                yanweiCao: {
-                    name: "燕尾草",
-                    traditionalUse: "与当地传统草药实践相关。",
-                    detail: "请在此填写你们在肇兴实地考察中收集的信息。"
+                yanweicao: {
+                    treatment: "可止血。",
+                    method: "嚼完后放在伤口上。"
                 },
                 dinian: {
-                    name: "地念",
-                    traditionalUse: "本项目研究的传统药用知识中包含这种植物。",
-                    detail: "请填写海报中记录的准确传统用途。"
-                },
-                citianqie: {
-                    name: "刺天茄",
-                    traditionalUse: "收录于我们整理的、与当地传统知识相关的植物中。",
-                    detail: "请在此填写实地考察信息。"
-                },
-                touhualiao: {
-                    name: "头花蓼",
-                    traditionalUse: "根据当地知识进行传统制备和使用。",
-                    detail: "请填写研究中记录的传统用途和制备方法。"
-                },
-                nanshashen: {
-                    name: "南沙参",
-                    traditionalUse: "本项目研究的传统医药知识中记录了这种植物。",
-                    detail: "请在此填写实地考察信息。"
-                },
-                cheqiancao: {
-                    name: "车前草",
-                    traditionalUse: "当地熟知的一种植物，本项目记录了它的传统用途。",
-                    detail: "请填写海报中的相关信息。"
-                },
-                yangerju: {
-                    name: "羊耳菊",
-                    traditionalUse: "收录于我们对传统药用植物的探索中。",
-                    detail: "请在此填写团队记录的传统用途。"
+                    treatment: "可止血。",
+                    note: "它的果实像草莓。"
                 },
                 qianliguang: {
-                    name: "千里光",
-                    traditionalUse: "通过研究当地传统知识记录的植物。",
-                    detail: "请在此填写实地考察信息。"
+                    treatment: "若有眼睛模糊/不舒服的症状使用。",
+                    method: "煮水雾眼睛。"
+                },
+                citianqie: {
+                    treatment: "治胃痛。",
+                    note: "很苦，不建议生吃。",
+                    method: "煮水喝。"
+                },
+                touhualiao: {
+                    method: "打碎后泡水，泡出深蓝色。",
+                    treatment: "可搓在腿上去风湿。"
+                },
+                nanshashen: {
+                    method: "煮水。",
+                    treatment: "治感冒。"
+                },
+                cheqiancao: {
+                    method: "煮水喝。",
+                    treatment: "利尿。"
+                },
+                yangerju: {
+                    method: "叶子拿去晒干，磨粉，加水涂在伤口上。",
+                    treatment: "驱寒，消肿。"
+                },
+                yuxingcao: {
+                    treatment: "去肺热，去火。",
+                    method: "一般当地人当香料吃。"
+                },
+                zisu: {
+                    treatment: "清热解毒，治咳嗽/感冒/想呕吐的症状。",
+                    method: "煮水。"
+                },
+                huzhang: {
+                    treatment: "可以消炎，也可用于烫伤。",
+                    method: "晾干磨成粉，配山茶油用于烫伤。"
+                },
+                zhushagen: {
+                    treatment: "治感冒，咽喉痛。",
+                    method: "煮水喝。"
+                },
+                hongteng: {
+                    treatment: "用于修复骨头和关节脱臼。",
+                    method: "晾干煮水配。"
+                },
+                fogen: {
+                    treatment: "可用于腰椎、颈椎问题，也可解渴、解酒。",
+                    method: "煮水喝。"
                 }
             },
             disclaimerTitle: "教育说明：",

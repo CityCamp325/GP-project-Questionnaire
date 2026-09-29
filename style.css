@@ -476,7 +476,7 @@ main {
 }
 
 .flashcard {
-    height: 270px;
+    height: 280px;
     cursor: pointer;
     perspective: 1000px;
 }
@@ -501,7 +501,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 28px;
+    padding: 22px;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     backface-visibility: hidden;
@@ -519,6 +519,14 @@ main {
     font-size: 1.8rem;
 }
 
+.plant-name-en {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .flash-back {
     transform: rotateY(180deg);
     background: var(--forest);
@@ -534,9 +542,26 @@ main {
     font-family: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", serif;
 }
 
-.flash-back p {
+.flashcard-details {
+    width: 100%;
+    margin: 0;
+    padding-left: 1.2rem;
+    text-align: left;
+}
+
+.flashcard-details li {
+    margin-bottom: 0.45rem;
     color: rgba(255, 253, 249, 0.82);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.flashcard-details li:last-child {
+    margin-bottom: 0;
+}
+
+.flash-back .tap {
+    margin-top: 10px;
 }
 
 .tap {
