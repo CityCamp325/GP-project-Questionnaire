@@ -194,6 +194,7 @@ window.translations = {
             interestOptions: ["兴趣降低很多", "兴趣有所降低", "没有变化", "更感兴趣", "更加感兴趣"],
             learnedPlaceholder: "请在此填写你的回答……",
             suggestionsPlaceholder: "请分享你的建议……",
+            openForm: "在新标签页中打开问卷",
             submit: "提交反馈",
             pending: "正在提交……",
             requiredError: "请回答所有必答题后再提交。",

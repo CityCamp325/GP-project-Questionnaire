@@ -42,83 +42,17 @@
     </nav>
 
     <main class="section">
-        <form class="questionnaire" id="questionnaireForm" novalidate>
-            <div class="form-question">
-                <label data-i18n="questionnaire.questions.0">1. Before visiting our website or stall, had you heard of Dong medicine?</label>
-                <div class="radio-row">
-                    <label><input type="radio" name="heard_before" value="Yes" required> <span data-i18n="questionnaire.yes">Yes</span></label>
-                    <label><input type="radio" name="heard_before" value="No"> <span data-i18n="questionnaire.no">No</span></label>
-                    <label><input type="radio" name="heard_before" value="Not sure"> <span data-i18n="questionnaire.notSure">Not sure</span></label>
-                </div>
-            </div>
-
-            <div class="form-question">
-                <label data-i18n="questionnaire.questions.1">2. How much did you know about Dong medicine before?</label>
-                <div class="scale">
-                    <label><input type="radio" name="before_level" value="1" required><span>1</span><small data-i18n="questionnaire.scale.0">Nothing</small></label>
-                    <label><input type="radio" name="before_level" value="2" required><span>2</span><small data-i18n="questionnaire.scale.1">A little</small></label>
-                    <label><input type="radio" name="before_level" value="3" required><span>3</span><small data-i18n="questionnaire.scale.2">Some</small></label>
-                    <label><input type="radio" name="before_level" value="4" required><span>4</span><small data-i18n="questionnaire.scale.3">Quite a lot</small></label>
-                    <label><input type="radio" name="before_level" value="5" required><span>5</span><small data-i18n="questionnaire.scale.4">A lot</small></label>
-                </div>
-            </div>
-
-            <div class="form-question">
-                <label data-i18n="questionnaire.questions.2">3. How much do you know about Dong medicine now?</label>
-                <div class="scale">
-                    <label><input type="radio" name="after_level" value="1" required><span>1</span><small data-i18n="questionnaire.scale.0">Nothing</small></label>
-                    <label><input type="radio" name="after_level" value="2" required><span>2</span><small data-i18n="questionnaire.scale.1">A little</small></label>
-                    <label><input type="radio" name="after_level" value="3" required><span>3</span><small data-i18n="questionnaire.scale.2">Some</small></label>
-                    <label><input type="radio" name="after_level" value="4" required><span>4</span><small data-i18n="questionnaire.scale.3">Quite a lot</small></label>
-                    <label><input type="radio" name="after_level" value="5" required><span>5</span><small data-i18n="questionnaire.scale.4">A lot</small></label>
-                </div>
-            </div>
-
-            <div class="form-question">
-                <label data-i18n="questionnaire.questions.3">4. What did you learn from our project?</label>
-                <div class="checkbox-grid">
-                    <label><input type="checkbox" name="learned" value="Dong medicine"> <span data-i18n="questionnaire.learnedOptions.0">Dong medicine</span></label>
-                    <label><input type="checkbox" name="learned" value="Medicinal plants"> <span data-i18n="questionnaire.learnedOptions.1">Medicinal plants</span></label>
-                    <label><input type="checkbox" name="learned" value="Preparation methods"> <span data-i18n="questionnaire.learnedOptions.2">Traditional preparation methods</span></label>
-                    <label><input type="checkbox" name="learned" value="Zhaoxing culture"> <span data-i18n="questionnaire.learnedOptions.3">Zhaoxing / Dong culture</span></label>
-                    <label><input type="checkbox" name="learned" value="Environment"> <span data-i18n="questionnaire.learnedOptions.4">Medicine and the environment</span></label>
-                    <label><input type="checkbox" name="learned" value="Other"> <span data-i18n="questionnaire.learnedOptions.5">Other</span></label>
-                </div>
-            </div>
-
-            <div class="form-question">
-                <label data-i18n="questionnaire.questions.4">5. Has this project made you more interested in learning about Dong medicine or Dong culture?</label>
-                <select name="interest" required>
-                    <option value="" data-i18n="questionnaire.chooseOne">Choose one...</option>
-                    <option value="Much less interested" data-i18n="questionnaire.interestOptions.0">Much less interested</option>
-                    <option value="Less interested" data-i18n="questionnaire.interestOptions.1">Less interested</option>
-                    <option value="No change" data-i18n="questionnaire.interestOptions.2">No change</option>
-                    <option value="More interested" data-i18n="questionnaire.interestOptions.3">More interested</option>
-                    <option value="Much more interested" data-i18n="questionnaire.interestOptions.4">Much more interested</option>
-                </select>
-            </div>
-
-            <div class="form-question">
-                <label for="learnedText" data-i18n="questionnaire.questions.5">6. What is one thing you learned today? (Optional)</label>
-                <textarea id="learnedText" name="learned_text" rows="4" placeholder="Write your answer here..." data-placeholder-i18n="questionnaire.learnedPlaceholder"></textarea>
-            </div>
-
-            <div class="form-question">
-                <label for="suggestions" data-i18n="questionnaire.questions.6">7. Do you have any suggestions for our store or website? (Optional)</label>
-                <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your suggestions here..." data-placeholder-i18n="questionnaire.suggestionsPlaceholder"></textarea>
-            </div>
-
-            <button class="button" type="submit" data-label-en="Submit Feedback" data-label-i18n="questionnaire.submit" data-pending-en="Submitting..." data-pending-i18n="questionnaire.pending">Submit Feedback</button>
-            <p id="formMessage" class="form-message"
-                data-required-error-en="Please answer all required questions before submitting."
-                data-required-error-i18n="questionnaire.requiredError"
-                data-submitting-message-en="Submitting your feedback..."
-                data-submitting-message-i18n="questionnaire.submittingMessage"
-                data-success-en="Thank you! Your feedback has been recorded."
-                data-success-i18n="questionnaire.success"
-                data-failure-en="Sorry, something went wrong. Please try again."
-                data-failure-i18n="questionnaire.failure"></p>
-        </form>
+        <div class="microsoft-form-embed">
+            <iframe
+                src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=ZnRW4GoY102eqrm7GoqYLoG_a0ONkdpFrT2C0v_MQpNUMTVIVUNSV0xET0tTMFNKMFFVTUlZRktJSy4u&amp;embed=true"
+                title="Dong Medicine questionnaire"
+                loading="lazy"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p class="form-fallback">
+            <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=ZnRW4GoY102eqrm7GoqYLoG_a0ONkdpFrT2C0v_MQpNUMTVIVUNSV0xET0tTMFNKMFFVTUlZRktJSy4u" target="_blank" rel="noopener noreferrer" data-i18n="questionnaire.openForm">Open the questionnaire in a new tab</a>
+        </p>
     </main>
 
     <footer>
